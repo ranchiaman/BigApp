@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big App Assignment</title>
+    <link href="">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .col-1 {
+            width: 8.33%;
+        }
+
+        .col-2 {
+            width: 16.66%;
+        }
+
+        .col-3 {
+            width: 25%;
+        }
+
+        .col-4 {
+            width: 33.33%;
+        }
+
+        .col-5 {
+            width: 41.66%;
+        }
+
+        .col-6 {
+            width: 50%;
+        }
+
+        .col-7 {
+            width: 58.33%;
+        }
+
+        .col-8 {
+            width: 66.66%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        .col-10 {
+            width: 83.33%;
+        }
+
+        .col-11 {
+            width: 91.66%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .header {
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 64px;
+            background: #FA6204 0% 0% no-repeat padding-box;
+            opacity: 1;
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .header a {
+            float: right;
+            border-radius: 50%;
+            width: 34px;
+            height: 34px;
+            border: 3px solid#1E4E40;
+            text-align: center;
+            font: 21px Arial, sans-serif;
+            letter-spacing: 0px;
+            color: #FFFFFF;
+            opacity: 1;
+            margin-right: 10px;
+            margin-top: 10px;
+            text-decoration: none;
+            background: #1E4E40 0% 0% no-repeat padding-box;
+        }
+
+        .top {
+            left: 0px;
+            width: 100%;
+            height: 164px;
+            background: transparent linear-gradient(83deg, #CC0036 0%, #F04A00 100%) 0% 0% no-repeat padding-box;
+            opacity: 1;
+            display: inline-block;
+
+        }
+
+        .premium {
+            top: 97px;
+            left: 401px;
+            /* width: 168px; */
+            height: 42px;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            box-shadow: 0px 3px 6px #00000029;
+            border-radius: 4px;
+            opacity: 1;
+            padding: 9px 11px;
+        }
+
+        #one-way span {
+            vertical-align: text-top;
+        }
+
+        .city_from {
+            top: 143px;
+            left: 136px;
+            width: 255px;
+            height: 45px;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            box-shadow: 0px 3px 6px #00000029;
+            border-radius: 4px;
+            opacity: 1;
+            border: none;
+        }
+
+        .travel-class {
+            margin-left: 10%;
+            margin-top: 1%;
+        }
+
+        .travel {
+            margin-left: 10%;
+            margin-top: 2%;
+        }
+
+        .fly-status,
+        .calander,
+        .return-date {
+            position: absolute;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .calander {
+            margin-left: ;
+        }
+
+        /* Placeholder Alignment */
+        .travel input {
+            text-indent: 40px;
+        }
+
+        /* Placeholder Font */
+        input::-webkit-input-placeholder {
+            font: normal normal normal 16px/18px Helvetica Neue;
+            color: #202124;
+            opacity: 1;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        input {
+            border: none;
+            outline: none;
+        }
+
+        .swap {
+            border-radius: 50%;
+            margin-top: 4px;
+            background-color: #fff;
+        }
+
+        /* Search Button */
+        #search {
+            width: 149px;
+            height: 44px;
+            background: #0D0D73 0% 0% no-repeat padding-box;
+            border-radius: 4px;
+            opacity: 1;
+            margin-left: 46%;
+            margin-top: 10px;
+        }
+
+        #search-text {
+            top: 220px;
+            left: 661px;
+            width: 45px;
+            height: 17px;
+            text-align: left;
+            font: normal normal medium 14px/18px Helvetica Neue;
+            letter-spacing: 0px;
+            color: #FFFFFF;
+            opacity: 1;
+        }
+
+        .sorting-flights {
+            padding: 10px 20px;
+            border: 1px solid #DADCE0;
+            display: inline-block;
+        }
+
+        #choose-flight-type {
+            float: right;
+            margin-top: 3%;
+            margin-right: 3%;
+            clear: both;
+        }
+
+        #popular-flights,
+        #cheapest-flights,
+        #fastest-flights,
+        #other-sort {
+            top: 284px;
+            left: 374px;
+            width: 111px;
+            height: 19px;
+            text-align: left;
+            font: normal normal medium 16px/18px Helvetica Neue;
+            letter-spacing: 0px;
+            color: #5F6368;
+            opacity: 1;
+        }
+
+        #popular-flights-details,
+        #cheapest-flights-details,
+        #fastest-flights-details,
+        #other-sort-details {
+            top: 306px;
+            left: 443px;
+            width: 99px;
+            height: 14px;
+            text-align: left;
+            font: normal normal normal 12px/18px Helvetica Neue;
+            letter-spacing: 0px;
+            color: #5F6368;
+            opacity: 1;
+            /* padding-left: 26px; */
+            padding-left: 36px;
+        }
+
+        .sorting-flights img {
+            height: 18px;
+            margin-bottom: -12px;
+            margin-right: 12px;
+        }
+
+        #expand_icon {
+            width: 24px;
+            height: 24px;
+            background: transparent url('img/expand_more-24px (1).png') 0% 0% no-repeat padding-box;
+            opacity: 1;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            margin: 0;
+            padding: 0 20px;
+            width: 27%;
+            /* background-color: #f1f1f1; */
+            height: 100%;
+            overflow: auto;
+            display: block;
+            height: 700px;
+            /* background-color: orange; */
+            position: absolute;
+            margin-top: 19px;
+        }
+
+        #best-flights {
+            top: 346px;
+            left: 323px;
+            height: 23px;
+            text-align: left;
+            font: normal normal normal 20px/18px Helvetica Neue;
+            letter-spacing: 0px;
+            color: #0D0D73;
+            opacity: 1;
+            margin-left: 27%;
+            padding-top: 15px;
+        }
+
+        #best-flights-details {
+            top: 372px;
+            left: 323px;
+            width: auto;
+            height: 14px;
+            text-align: left;
+            font: normal normal normal 12px/18px Helvetica Neue;
+            letter-spacing: 0px;
+            color: #5F6368;
+            opacity: 1;
+        }
+
+        #reload {
+            /* background: #5F6368 0% 0% no-repeat padding-box; */
+            opacity: 1;
+        }
+
+        #filters {
+            text-align: right;
+            font: normal normal normal 16px/18px Helvetica Neue;
+            letter-spacing: 0px;
+            color: #DADCE0;
+            opacity: 1;
+        }
+
+        #filters span {
+            padding: 0 6px;
+        }
+
+        #head {
+            border-bottom: 1px solid #DADCE0;
+            padding-bottom: 2px;
+        }
+
+        #head>span {
+            letter-spacing: 0px;
+            color: #FA6204;
+            opacity: 1;
+        }
+
+        #stopage,
+        #airports {
+            width: 340px;
+            padding: 20px 10px;
+            border-bottom: 1px solid #DADCE0;
+            /* text-align: center; */
+        }
+
+        table,
+        tr,
+        td {
+            /* width: 76px; */
+            height: 16px;
+            text-align: left;
+            font: normal normal normal;
+            letter-spacing: 0px;
+            color: #5F6368;
+            opacity: 1;
+        }
+
+        tr {
+            /* padding: 10px 4px; */
+        }
+
+        td {
+            /* float: right; */
+        }
+
+        .stop {
+            padding: 2px 8px;
+        }
+
+        /* pagination */
+        .pagination {
+            display: inline-block;
+            padding: 5px 0;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 6px 12px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            font-size: 22px;
+        }
+
+        #flight_legs,
+        #airports,
+        #times {
+            width: 340px;
+        }
+
+        #takeoff,
+        #landing {
+            border: 1px solid #ddd;
+            padding: 5px 23px;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        #times {
+            border-bottom: 1px solid #ddd;
+        }
+
+        #choose-flights,
+        #choose-flights2,
+        #choose-flights3 {
+            /* width: 804px; */
+            height: auto;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            border: 1px solid #DADCE0;
+            border-radius: 8px;
+            opacity: 1;
+            margin-right: 27%;
+            margin-left: 27%;
+            margin-top: 54px;
+            /* border: 1px solid red; */
+        }
+
+        #choose-flights td,
+        #choose-flights2 td,
+        #choose-flights3 td {
+            padding: 10px 12px;
+            /* float: right; */
+
+        }
+
+        #choose-flights2,
+        #choose-flights3 {
+            margin-top: 10px;
+        }
+
+        .book-now-button {
+            width: 136px;
+            height: 40px;
+            background: #337CFF 0% 0% no-repeat padding-box;
+            border-radius: 4px;
+            opacity: 1;
+            color: #fff;
+            outline: none;
+            border: none;
+        }
+
+        .flight-details-link {
+            text-align: right;
+            font: normal normal normal 12px/18px Helvetica Neue;
+            letter-spacing: 0px;
+            color: #337CFF;
+            opacity: 1;
+        }
+
+        /* Side Nav */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            display: none;
+            position: fixed;
+            z-index: 1;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            box-shadow: 4px 4px 10px #00000029;
+            border: 1px solid #F0F1F3;
+            opacity: 1;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #sidenav-table td {
+            padding-left: 33px;
+            padding-bottom: 10px;
+
+        }
+
+        .sidenav a {
+            /* width: 100%; */
+            /* background-color: red; */
+            /* margin: 0; */
+        }
+
+        #user {
+            /* background-color: #fff; */
+            padding: 10px;
+            position: absolute;
+            width: 350px;
+            height: 215px;
+            top: 10px;
+            right: 6px;
+            display: none;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            box-shadow: 4px 4px 10px #00000029;
+            border: 1px solid #E6E6E6;
+            opacity: 1;
+            /* padding: 30px; */
+        }
+
+        #signout {
+            width: 200px;
+            height: 40px;
+            background: #0D0D73 0% 0% no-repeat padding-box;
+            opacity: 1;
+            color: #fff;
+            margin-left: 66px;
+            margin-top: 5%;
+        }
+
+        #user p {
+            padding: 10px 20px;
+            font-family: sans-serif;
+            font-size: x-large;
+        }
+
+        #r-user {
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 23px;
+            color: #fff;
+            background: #1E4E40 0% 0% no-repeat padding-box;
+            text-decoration: none;
+            margin: 16px;
+        }
+
+        #email {
+            text-align: center;
+            margin-left: 25%;
+            font-size: 10px;
+            letter-spacing: 0px;
+            color: #5F6368;
+        }
+
+        .js-is-hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- header -->
+    <div class="header">
+        <img src="asset/menu-24px.svg" onclick="openNav()">
+        <a href="#" onclick="userLoggedin()">R</a>
+    </div>
+
+    <!-- sideNav -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div>
+            <!-- <div style="height: 74px; width: auto;"> -->
+            <table id="sidenav-table">
+                <div>
+                    <tr>
+                        <td><span>&#x2708;</span></td>
+                        <td><span>Flights</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>&#x1f6cf;</span></td>
+                        <td><span>Hotel</span></td>
+                    </tr>
+                    <tr>
+                        <td><img src="asset/class-24px.svg"></td>
+                        <td><span>Booking</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><img src="asset/emoji_people-24px.svg"></td>
+                        <td><span>Travellers</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><span>&#xf500;</span></td>
+                        <td><span>Agency Wallet</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><img src="asset/class-24px.svg"></td>
+                        <td><span>Agency Users</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><img src="asset/class-24px.svg"></td>
+                        <td><span>Organisation Profile</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><img src="asset/class-24px.svg"></td>
+                        <td><span>Settings</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><img src="asset/class-24px.svg"></td>
+                        <td><span>About</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><img src="asset/class-24px.svg"></td>
+                        <td><span>Help & Feedback</span></td>
+                    </tr>
+                </div>
+            </table>
+        </div>
+    </div>
+
+    <div id="user">
+        <p>Account</p>
+        <div id="user-cont" style="padding-top: 12px;">
+            <a id="r-user" href="#">R</a>
+            <span style="font-family: inherit; font-size: x-large;">John Smith</span><br>
+            <span id="email">johnSmith@Aol.com</span>
+        </div>
+        <hr style="margin-top: 20px">
+        <button id="signout">Sign out</button>
+    </div>
+
+    <div class="row top">
+        <div class="travel-class">
+            <select class="premium">
+                <option>One Way</option><img src="asset/arrow_drop_down-24px.svg">
+            </select>
+
+            <select class="premium">
+                <option>1 Passagner</option><img src="asset/arrow_drop_down-24px.svg">
+            </select>
+
+            <select class="premium">
+                <option>Premium Economy</option><img src="asset/arrow_drop_down-24px.svg">
+            </select>
+        </div>
+
+        <div class="travel">
+            <img class="fly-status" src="asset/flight_takeoff-24px.svg">
+            <input class="city_from" type="text" placeholder="Bengaluru BNG" name="">
+
+            <img class="swap" src="asset/swap_horiz-24px.svg">
+
+            <img class="fly-status" src="asset/flight_land-24px.svg">
+            <input class="city_from" type="text" placeholder="New York" name="">
+
+            <img class="calander" src="asset/date_range-24px (2).svg">
+            <input class="city_from" type="text" placeholder="Sat, 29 Aug, 2020" value="">
+
+            <input class="city_from" type="text" placeholder="+ ADD RETURN DATE">
+        </div>
+        <button id="search"><span id="search-text">SEARCH</span></button>
+
+    </div>
+
+    <div id="choose-flight-type">
+        <div class="sorting-flights">
+            <img src="asset/star.png" style="">
+            <label id="popular-flights">Popular Flights</label><br>
+            <label id="popular-flights-details">$1206.00 * Duration: 11h 54m</label>
+            <span></span>
+        </div>
+
+        <div class="sorting-flights">
+            <img src="asset/cheap.PNG" style="">
+            <label id="cheapest-flights">Cheapest Flights</label><br>
+            <label id="cheapest-flights-details" style="padding-left:25px;">$1206.00 * Duration: 11h 54m</label>
+            <span></span>
+        </div>
+
+        <div class="sorting-flights">
+            <img src="asset/meter.png" style="height:14px;">
+            <label id="fastest-flights">Fastest Flights</label><br>
+            <label id="fastest-flights-details">$1206.00 * Duration: 11h 54m</label>
+            <span></span>
+        </div>
+
+        <div class="sorting-flights">
+            <img src="asset/sort-24px.svg">
+            <label id="other-sort">Other Sort Options</label><br>
+
+            <label id="other-sort-details">$1206.00 * Duration: 11h 54m</label>
+            <img id="expand_icon" src="asset/expand_more-24px.svg">
+            <span></span>
+        </div>
+    </div>
+
+    <div style="clear:both"></div>
+    <div class="sidebar">
+        <div id="head">
+            <img src="asset/sort-24px.svg">
+            <span>Filters</span><span></span>
+            <div id="filters" style="float: right;">
+                <span>&#10004;</span>
+                <span>Apply</span>
+                <span id="reload" style='font-size:20px;'>&#8635;</span>
+            </div>
+        </div>
+
+        <table id="stopage">
+            <tr>
+                <td>Stops</td>
+                <td>- <br>From</td>
+            </tr>
+
+            <tr>
+                <td><input type="checkbox"><span class="stop">No stops(5)</span></td>
+                <td>$2000.00</td>
+            </tr>
+
+            <tr>
+                <td><input type="checkbox" checked><span class="stop"> 1 stop(2)<span></td>
+                <td>$3500.00</td>
+            </tr>
+
+            <tr>
+                <td><input type="checkbox" checked><span class="stop"> 2+stops(5) </span></td>
+                <td>$1600.00</td>
+            </tr>
+        </table>
+
+        <table id="flight_legs">
+            <tr>
+                <td>Airports</td>
+                <td>-</td>
+            </tr>
+
+            <tr>
+                <td>Flight Legs</td>
+                <td></td>
+            </tr>
+        </table>
+        <div class="pagination">
+            <a href="#">1</a>
+            <a href="#" class="active">2</a>
+            <a href="#">3</a>
+        </div>
+
+        <table id="airports">
+            <tr>
+                <td>Bengalore</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" checked><span class="stop"> BLR-Kempegowda </span></td>
+                <td>$3000.00</td>
+            </tr>
+            <tr>
+                <td>New York</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" checked><span class="stop"> JFK: John F Kenne </span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"><span class="stop"> LGA: La:Guardia Int </span></td>
+                <td>$2800.00</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"><span class="stop"> EWR: Network Int </span></td>
+                <td>$2800.00</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <table id="times">
+            <tr>
+                <td>Times</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td><span id="takeoff">Take-Off from</span></td>
+                <td><span id="landing">Landing</span></td>
+            </tr>
+            <tr>
+                <td>Take off from JFK</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="time"><span class="stop"> Anytime </span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="time"><span class="stop"> Before 6AM </span></td>
+                <td><input type="radio" name="time"><span class="stop"> 6AM-12PM </span></td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="time"><span class="stop"> 12PM-6PM </span></td>
+                <td><input type="radio" name="time"><span class="stop"> After 6 PM </span></td>
+            </tr>
+
+            <tr>
+                <td>Take off from BLR</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="time"><span class="stop"> Anytime </span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="time"><span class="stop"> Before 6AM </span></td>
+                <td><input type="radio" name="time"><span class="stop"> 6AM-12PM </span></td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="time"><span class="stop"> 12PM-6PM </span></td>
+                <td><input type="radio" name="time"><span class="stop"> After 6 PM </span></td>
+            </tr>
+
+
+        </table>
+    </div>
+
+    <div class="row" id="best-flights" style="clear:both">
+        <p> Best Flights </p>
+        <span id="best-flights-details">Total price includes taxes + fees for one adult. Additional bag fees and other
+            fees may apply</span>
+    </div>
+    <div id="choose-flights">
+        <table>
+            <tr>
+                <td><img src="asset/spice jet.png"></td>
+                <td>21:55 - 07:00<sup>+2 days </sup><br><span>Spicejet</span></td>
+                <td>43h35m <br>BLR - JFK</td>
+                <td>1 Stop <br>25 h 20 m DEL</td>
+                <td><button class="book-now-button">Book Now</button><br><span class="flight-details-link">Flight
+                        Details</span></td>
+            </tr>
+        </table>
+    </div>
+    <div id="choose-flights2">
+        <table>
+            <tr>
+                <td><img src="asset/spice jet.png"></td>
+                <td>21:55 - 07:00<sup>+2 days </sup><br><span>Spicejet</span></td>
+                <td>43h35m <br>BLR - JFK</td>
+                <td>1 Stop <br>25 h 20 m DEL</td>
+                <td><button class="book-now-button">Book Now</button><br><span class="flight-details-link">Flight
+                        Details</span></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="choose-flights3">
+        <table>
+            <tr>
+                <td><img src="asset/spice jet.png"></td>
+                <td>21:55 - 07:00<sup>+2 days </sup><br><span>Spicejet</span></td>
+                <td>43h35m <br>BLR - JFK</td>
+                <td>1 Stop <br>25 h 20 m DEL</td>
+                <td><button class="book-now-button">Book Now</button><br><span class="flight-details-link">Flight
+                        Details</span></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.display = "block";
+            document.getElementById("mySidenav").style.width = "310px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("mySidenav").style.display = "none";
+        }
+
+        function userLoggedin() {
+            document.getElementById("user").style.display = "block";
+        }
+
+        document.getElementsByClassName("top").addEventListener("click", function () {
+            document.getElementById("user").style.display = "none";
+        });
+
+        var box = document.querySelector("#user");
+
+        // Detect all clicks on the document
+        document.addEventListener("click", function (event) {
+            // If user clicks inside the element, do nothing
+            if (event.target.closest("#user")) return;
+
+            // If user clicks outside the element, hide it!
+            user.classList.add("js-is-hidden");
+        });
+    </script>
+
+</body>
+
+</html>
